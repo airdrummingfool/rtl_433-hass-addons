@@ -1,6 +1,10 @@
 #!/usr/bin/with-contenv bashio
 
-if [ ! -z "${MQTT_HOST}" ]; then
+echo "MQTT_HOST: '${MQTT_HOST}'"
+echo "MQTT_HOST+x: '${MQTT_HOST+x}'"
+echo "MQTT_PORT: '${MQTT_PORT}'"
+
+if [ ! -z ${MQTT_HOST+x} ]; then
   echo "Running in stand-alone docker mode"
   MQTT_PORT="${MQTT_PORT:-1883}"
   RTL_TOPIC="${RTL_TOPIC:-rtl_433/+/events}"
